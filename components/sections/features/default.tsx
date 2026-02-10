@@ -1,4 +1,4 @@
-import { Zap, Shield, Rocket } from "lucide-react";
+import { Users, Cpu, TrendingUp } from "lucide-react";
 import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -19,26 +19,26 @@ interface FeaturesProps {
 }
 
 export default function Features({
-  title = "Features that matter",
-  description = "Everything you need to build modern web applications",
+  title = "How we work with you",
+  description = "Forward-deployed consulting that integrates seamlessly with your team",
   features = [
     {
-      icon: <Zap className="size-8 text-brand" />,
-      title: "Lightning Fast",
+      icon: <Users className="size-8 text-brand" />,
+      title: "Forward-Deployed Engineers",
       description:
-        "Built with performance in mind. Optimized components ensure your app loads instantly.",
+        "Our AI experts embed directly into your team, working alongside your engineers to build and deploy production-ready AI systems.",
     },
     {
-      icon: <Shield className="size-8 text-brand" />,
-      title: "Secure by Default",
+      icon: <Cpu className="size-8 text-brand" />,
+      title: "Custom AI Solutions",
       description:
-        "Industry-standard security practices built in. Your data and users are protected.",
+        "From LLM integration to computer vision and predictive analytics, we build AI systems tailored to your specific business needs.",
     },
     {
-      icon: <Rocket className="size-8 text-brand" />,
-      title: "Deploy Anywhere",
+      icon: <TrendingUp className="size-8 text-brand" />,
+      title: "Strategic Implementation",
       description:
-        "Works seamlessly with Vercel, Netlify, AWS, and any modern hosting platform.",
+        "We don't just build technology—we ensure your AI initiatives drive measurable business outcomes and ROI.",
     },
   ],
   className,

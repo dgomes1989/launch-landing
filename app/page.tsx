@@ -12,7 +12,16 @@ export default function Home() {
       <Hero />
       <Features />
       <Testimonials />
-      <CTA />
+      <CTA
+        title="Ready to accelerate your AI initiatives?"
+        buttons={[
+          {
+            href: "#contact",
+            text: "Schedule a Consultation",
+            variant: "default",
+          },
+        ]}
+      />
       <Footer />
     </main>
   );

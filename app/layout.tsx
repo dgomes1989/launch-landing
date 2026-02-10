@@ -8,18 +8,18 @@ import { inter } from "@/lib/fonts";
 import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
-  title: "Launch UI Landing Page",
+  title: "Cilantro | Forward-Deployed AI Consulting",
   description:
-    "A responsive landing page built with Launch UI and Tailwind CSS. Features modern design, dark mode support, and production-ready components.",
+    "Cilantro embeds expert AI engineers directly into your team to build, deploy, and scale intelligent systems. Forward-deployed consulting for LLMs, computer vision, and custom AI solutions.",
   keywords: [
-    "Landing page template",
-    "Components",
-    "Shadcn",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Radix UI",
-    "Launch UI",
+    "AI Consulting",
+    "Machine Learning",
+    "LLM Integration",
+    "Computer Vision",
+    "Forward-Deployed Engineering",
+    "AI Strategy",
+    "Custom AI Solutions",
+    "Enterprise AI",
   ],
   authors: [
     {
@@ -33,26 +33,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.getStartedUrl,
-    title: "Launch UI Landing Page",
+    title: "Cilantro | Forward-Deployed AI Consulting",
     description:
-      "A responsive landing page built with Launch UI and Tailwind CSS.",
-    siteName: "Launch UI Landing Page",
+      "Expert AI engineers embedded in your team. Build and deploy production-ready AI systems.",
+    siteName: "Cilantro AI Consulting",
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Launch UI Landing Page",
+        alt: "Cilantro AI Consulting",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Launch UI Landing Page",
+    title: "Cilantro | Forward-Deployed AI Consulting",
     description:
-      "A responsive landing page built with Launch UI and Tailwind CSS.",
+      "Expert AI engineers embedded in your team. Build and deploy production-ready AI systems.",
     images: [siteConfig.ogImage],
-    creator: "@mikolajdobrucki",
+    creator: "@dgomes1989",
   },
   icons: {
     icon: "/favicon.svg",

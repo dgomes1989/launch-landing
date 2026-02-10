@@ -21,32 +21,32 @@ interface TestimonialsProps {
 }
 
 export default function Testimonials({
-  title = "Loved by developers",
-  description = "See what our users have to say about their experience",
+  title = "Trusted by forward-thinking companies",
+  description = "See how Cilantro has helped enterprises accelerate their AI initiatives",
   testimonials = [
     {
       quote:
-        "This is the best landing page template I've ever used. The components are beautiful and easy to customize.",
-      author: "Sarah Johnson",
-      role: "Frontend Developer",
+        "Cilantro's forward-deployed model was a game changer. Their engineers integrated seamlessly with our team and delivered a production-ready LLM system in weeks, not months.",
+      author: "Jennifer Martinez",
+      role: "VP of Engineering, Fortune 500 Fintech",
     },
     {
       quote:
-        "Launch UI saved me countless hours. I was able to ship a professional landing page in just a few hours.",
-      author: "Michael Chen",
-      role: "Product Designer",
+        "Working with Cilantro felt like extending our own team with world-class AI expertise. They understood our business context and built solutions that actually moved the needle.",
+      author: "Alex Thompson",
+      role: "CTO, Healthcare Tech Startup",
     },
     {
       quote:
-        "The attention to detail is incredible. Everything just works out of the box with perfect dark mode support.",
-      author: "Emily Rodriguez",
-      role: "Startup Founder",
+        "Unlike traditional consultants who just provide recommendations, Cilantro rolled up their sleeves and built our computer vision pipeline alongside our engineers. The results exceeded expectations.",
+      author: "Priya Patel",
+      role: "Head of Product, E-commerce Platform",
     },
     {
       quote:
-        "Clean code, great documentation, and beautiful design. This is exactly what I needed for my SaaS project.",
-      author: "David Kim",
-      role: "Full Stack Engineer",
+        "Cilantro helped us navigate the complex AI landscape and implement solutions that delivered real ROI. Their strategic guidance was as valuable as their technical expertise.",
+      author: "Marcus Johnson",
+      role: "Chief Innovation Officer, Manufacturing Corp",
     },
   ],
   className,
