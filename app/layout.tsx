@@ -8,12 +8,9 @@ import { inter } from "@/lib/fonts";
 import { siteConfig } from "../config/site";
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  metadataBase: new URL(siteConfig.getStartedUrl),
-  description: siteConfig.description,
+  title: "Launch UI Landing Page",
+  description:
+    "A responsive landing page built with Launch UI and Tailwind CSS. Features modern design, dark mode support, and production-ready components.",
   keywords: [
     "Landing page template",
     "Components",
@@ -22,6 +19,7 @@ export const metadata: Metadata = {
     "React",
     "Tailwind CSS",
     "Radix UI",
+    "Launch UI",
   ],
   authors: [
     {
@@ -30,26 +28,29 @@ export const metadata: Metadata = {
     },
   ],
   creator: "mikolajdobrucki",
+  metadataBase: new URL(siteConfig.getStartedUrl),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.getStartedUrl,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: "Launch UI Landing Page",
+    description:
+      "A responsive landing page built with Launch UI and Tailwind CSS.",
+    siteName: "Launch UI Landing Page",
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: "Launch UI Landing Page",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "Launch UI Landing Page",
+    description:
+      "A responsive landing page built with Launch UI and Tailwind CSS.",
     images: [siteConfig.ogImage],
     creator: "@mikolajdobrucki",
   },
