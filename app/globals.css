@@ -111,44 +111,44 @@
 }
 
 :root {
-  /* Accent colors */
-  --brand: oklch(66.5% 0.1804 47.04);
-  --brand-foreground: oklch(75.77% 0.159 55.91);
+  /* Cilantro Brand Colors */
+  --brand: #304F30; /* Cilantro Dark */
+  --brand-foreground: #8B9D8B; /* Light Sage */
 
-  /* Customized shadcn/ui colors */
-  --background: oklch(97.65% 0.001 17.18);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(66.5% 0.1804 47.04);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.927 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* Customized shadcn/ui colors with Cilantro palette */
+  --background: #F9F9F7; /* Off White */
+  --foreground: #1A1A1A; /* Charcoal */
+  --card: #FFFFFF; /* White */
+  --card-foreground: #1A1A1A; /* Charcoal */
+  --popover: #FFFFFF; /* White */
+  --popover-foreground: #1A1A1A; /* Charcoal */
+  --primary: #304F30; /* Cilantro Dark */
+  --primary-foreground: #FFFFFF; /* White */
+  --secondary: #E8EDE8; /* Pale Green */
+  --secondary-foreground: #2D3D2D; /* Forest */
+  --muted: #E8EDE8; /* Pale Green */
+  --muted-foreground: #6B7D6B; /* Sage */
+  --accent: #8B9D8B; /* Light Sage */
+  --accent-foreground: #1A1A1A; /* Charcoal */
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8EDE8; /* Pale Green */
+  --input: #E8EDE8; /* Pale Green */
+  --ring: #304F30; /* Cilantro Dark */
+  --chart-1: #304F30; /* Cilantro Dark */
+  --chart-2: #2D3D2D; /* Forest */
+  --chart-3: #6B7D6B; /* Sage */
+  --chart-4: #8B9D8B; /* Light Sage */
+  --chart-5: #E8EDE8; /* Pale Green */
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #304F30;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8EDE8;
+  --sidebar-accent-foreground: #2D3D2D;
+  --sidebar-border: #E8EDE8;
+  --sidebar-ring: #304F30;
 
   /* Illustrations colors */
   --light: var(--brand);
@@ -160,50 +160,50 @@
 }
 
 .dark {
-  /* Accent colors */
-  --brand: oklch(83.6% 0.1177 66.87);
-  --brand-foreground: oklch(75.77% 0.159 55.91);
+  /* Cilantro Brand Colors - Dark Mode */
+  --brand: #8B9D8B; /* Light Sage */
+  --brand-foreground: #E8EDE8; /* Pale Green */
 
-  /* Customized shadcn/ui colors */
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.141 0.005 285.823);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.141 0.005 285.823);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.885 0.006 286.033);
-  --input: oklch(0.274 0.006 286.033);
-  --ring: oklch(0.442 0.017 285.786);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.274 0.006 286.033);
-  --sidebar-ring: oklch(0.442 0.017 285.786);
+  /* Customized shadcn/ui colors - Dark Mode */
+  --background: #1A1A1A; /* Charcoal */
+  --foreground: #F9F9F7; /* Off White */
+  --card: #2D3D2D; /* Forest */
+  --card-foreground: #F9F9F7; /* Off White */
+  --popover: #2D3D2D; /* Forest */
+  --popover-foreground: #F9F9F7; /* Off White */
+  --primary: #8B9D8B; /* Light Sage */
+  --primary-foreground: #1A1A1A; /* Charcoal */
+  --secondary: #3D3D3D; /* Dark Gray */
+  --secondary-foreground: #F9F9F7; /* Off White */
+  --muted: #3D3D3D; /* Dark Gray */
+  --muted-foreground: #6B7D6B; /* Sage */
+  --accent: #304F30; /* Cilantro Dark */
+  --accent-foreground: #E8EDE8; /* Pale Green */
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #3D3D3D; /* Dark Gray */
+  --input: #3D3D3D; /* Dark Gray */
+  --ring: #8B9D8B; /* Light Sage */
+  --chart-1: #8B9D8B; /* Light Sage */
+  --chart-2: #6B7D6B; /* Sage */
+  --chart-3: #304F30; /* Cilantro Dark */
+  --chart-4: #E8EDE8; /* Pale Green */
+  --chart-5: #2D3D2D; /* Forest */
+  --sidebar: #2D3D2D; /* Forest */
+  --sidebar-foreground: #F9F9F7; /* Off White */
+  --sidebar-primary: #8B9D8B; /* Light Sage */
+  --sidebar-primary-foreground: #1A1A1A; /* Charcoal */
+  --sidebar-accent: #3D3D3D; /* Dark Gray */
+  --sidebar-accent-foreground: #F9F9F7; /* Off White */
+  --sidebar-border: #3D3D3D; /* Dark Gray */
+  --sidebar-ring: #8B9D8B; /* Light Sage */
 
   /* Illustrations colors */
   --light: var(--foreground);
   --light-foreground: var(--foreground);
 
   /* Shadows */
-  --shadow: #00000020;
+  --shadow: #00000030;
   --shadow-strong: #00000088;
 }
 
