@@ -1,140 +1,107 @@
-import { type VariantProps } from "class-variance-authority";
-import { Menu } from "lucide-react";
-import { ReactNode } from "react";
+"use client";
 
-import { siteConfig } from "@/config/site";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Menu, XIcon } from "lucide-react";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
-import { Button, buttonVariants } from "../../ui/button";
-import {
-  Navbar as NavbarComponent,
-  NavbarLeft,
-  NavbarRight,
-} from "../../ui/navbar";
-import Navigation from "../../ui/navigation";
-import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
-
-interface NavbarLink {
-  text: string;
-  href: string;
-}
-
-interface NavbarActionProps {
-  text: string;
-  href: string;
-  variant?: VariantProps<typeof buttonVariants>["variant"];
-  icon?: ReactNode;
-  iconRight?: ReactNode;
-  isButton?: boolean;
-}
+import KauaiLogo from "../../logos/kauai";
+import { Button } from "../../ui/button";
 
 interface NavbarProps {
-  logo?: ReactNode;
-  name?: string;
-  homeUrl?: string;
-  mobileLinks?: NavbarLink[];
-  actions?: NavbarActionProps[];
-  showNavigation?: boolean;
-  customNavigation?: ReactNode;
   className?: string;
+  onOpenForm?: () => void;
 }
 
-export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
-  homeUrl = siteConfig.url,
-  mobileLinks = [
-    { text: "Getting Started", href: siteConfig.url },
-    { text: "Components", href: siteConfig.url },
-    { text: "Documentation", href: siteConfig.url },
-  ],
-  actions = [
-    { text: "Sign in", href: siteConfig.url, isButton: false },
-    {
-      text: "Get Started",
-      href: siteConfig.url,
-      isButton: true,
-      variant: "default",
-    },
-  ],
-  showNavigation = true,
-  customNavigation,
-  className,
-}: NavbarProps) {
+const links = [
+  { text: "Plataforma", href: "#plataforma" },
+  { text: "Supermercados", href: "#supermercados" },
+  { text: "Processo", href: "#processo" },
+  { text: "Equipe", href: "#equipe" },
+  { text: "FAQ", href: "#faq" },
+];
+
+export default function Navbar({ className, onOpenForm }: NavbarProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 100], [0, 1]);
+
   return (
-    <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
-      <div className="fade-bottom bg-background/15 absolute left-0 h-24 w-full backdrop-blur-lg"></div>
-      <div className="max-w-container relative mx-auto">
-        <NavbarComponent>
-          <NavbarLeft>
-            <a
-              href={homeUrl}
-              className="flex items-center gap-2 text-xl font-bold"
-            >
-              {logo}
-              {name}
-            </a>
-            {showNavigation && (customNavigation || <Navigation />)}
-          </NavbarLeft>
-          <NavbarRight>
-            {actions.map((action, index) =>
-              action.isButton ? (
-                <Button
-                  key={index}
-                  variant={action.variant || "default"}
-                  asChild
-                >
-                  <a href={action.href}>
-                    {action.icon}
-                    {action.text}
-                    {action.iconRight}
-                  </a>
-                </Button>
-              ) : (
-                <a
-                  key={index}
-                  href={action.href}
-                  className="hidden text-sm md:block"
-                >
-                  {action.text}
-                </a>
-              ),
+    <motion.header
+      className={cn("fixed top-0 left-0 right-0 z-50", className)}
+    >
+      <motion.div
+        className="absolute inset-0 border-b border-border/0 backdrop-blur-md"
+        style={{
+          opacity: bgOpacity,
+          backgroundColor: "var(--background)",
+          borderColor: "var(--border)",
+        }}
+      />
+      <div className="max-w-container relative mx-auto px-4">
+        <nav className="flex items-center justify-between py-4">
+          <a href="#" className="flex items-center gap-2 text-lg font-bold">
+            <KauaiLogo className="text-brand size-8" />
+            <span>Kauai</span>
+          </a>
+
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
+
+          <div className="hidden md:block">
+            <Button size="sm" onClick={onOpenForm}>
+              Agendar Diagnóstico
+            </Button>
+          </div>
+
+          <button
+            className="text-foreground md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? (
+              <XIcon className="size-6" />
+            ) : (
+              <Menu className="size-6" />
             )}
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="shrink-0 md:hidden"
-                >
-                  <Menu className="size-5" />
-                  <span className="sr-only">Toggle navigation menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right">
-                <nav className="grid gap-6 text-lg font-medium">
-                  <a
-                    href={homeUrl}
-                    className="flex items-center gap-2 text-xl font-bold"
-                  >
-                    <span>{name}</span>
-                  </a>
-                  {mobileLinks.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.href}
-                      className="text-muted-foreground hover:text-foreground"
-                    >
-                      {link.text}
-                    </a>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </NavbarRight>
-        </NavbarComponent>
+          </button>
+        </nav>
       </div>
-    </header>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <motion.div
+          className="bg-background border-border border-b px-4 pb-6 md:hidden"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+        >
+          <div className="flex flex-col gap-4">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.text}
+              </a>
+            ))}
+            <Button size="sm" className="w-full" onClick={onOpenForm}>
+              Agendar Diagnóstico
+            </Button>
+          </div>
+        </motion.div>
+      )}
+    </motion.header>
   );
 }

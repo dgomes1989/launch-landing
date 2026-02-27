@@ -101,7 +101,7 @@ interface FAQProps {
 
 export default function FAQ({ className }: FAQProps) {
   return (
-    <Section className={cn("", className)}>
+    <Section id="faq" className={cn("", className)}>
       <div className="max-w-container mx-auto flex flex-col items-center gap-10">
         <FadeIn>
           <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">

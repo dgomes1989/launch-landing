@@ -50,7 +50,7 @@ const steps: StepProps[] = [
 
 export default function Process({ className }: ProcessProps) {
   return (
-    <Section className={cn("bg-muted/50", className)}>
+    <Section id="processo" className={cn("bg-muted/50", className)}>
       <div className="max-w-container mx-auto flex flex-col gap-12">
         <div className="flex flex-col items-start gap-4">
           <FadeIn>
