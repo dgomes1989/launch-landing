@@ -1,20 +1,17 @@
+"use client";
+
+import { AnimatePresence, motion } from "framer-motion";
+import { MinusIcon, PlusIcon } from "lucide-react";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../../ui/accordion";
+import { FadeIn, StaggerContainer, StaggerItem } from "../../ui/motion";
 import { Section } from "../../ui/section";
 
 interface FAQItemProps {
   question: string;
   answer: string;
-}
-
-interface FAQProps {
-  className?: string;
 }
 
 const faqItems: FAQItemProps[] = [
@@ -26,7 +23,7 @@ const faqItems: FAQItemProps[] = [
   {
     question: "Como funciona a segurança dos dados?",
     answer:
-      "Segurança é prioridade. Nossa plataforma adota padrões corporativos de proteção de dados e operamos a lado com sua equipe para garantir conformidade total com suas políticas e exigências regulatórias.",
+      "Segurança é prioridade. Nossa plataforma adota padrões corporativos de proteção de dados e operamos ao lado da sua equipe para garantir conformidade total com suas políticas e exigências regulatórias.",
   },
   {
     question: "Quais recursos a plataforma oferece?",
@@ -50,26 +47,74 @@ const faqItems: FAQItemProps[] = [
   },
 ];
 
+function FAQCard({ item, index }: { item: FAQItemProps; index: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      className={cn(
+        "bg-card border-border cursor-pointer select-none rounded-xl border transition-all duration-300",
+        isOpen && "shadow-lg ring-1 ring-brand/10",
+      )}
+      onClick={() => setIsOpen(!isOpen)}
+      layout
+    >
+      <div className="flex items-start justify-between gap-4 p-6">
+        <h3 className="text-base font-semibold pr-2">{item.question}</h3>
+        <motion.div
+          className="text-brand mt-0.5 shrink-0"
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+        >
+          {isOpen ? (
+            <MinusIcon className="size-5" />
+          ) : (
+            <PlusIcon className="size-5" />
+          )}
+        </motion.div>
+      </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: { duration: 0.35, ease: [0.25, 0.4, 0.25, 1] },
+              opacity: { duration: 0.25, delay: isOpen ? 0.1 : 0 },
+            }}
+            className="overflow-hidden"
+          >
+            <div className="text-muted-foreground px-6 pb-6 text-sm leading-relaxed">
+              {item.answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+interface FAQProps {
+  className?: string;
+}
+
 export default function FAQ({ className }: FAQProps) {
   return (
-    <Section className={cn("", className)}>
-      <div className="max-w-container mx-auto flex flex-col items-center gap-8">
-        <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
-          Perguntas Frequentes
-        </span>
-        <div className="grid w-full gap-4 sm:grid-cols-2">
+    <Section id="faq" className={cn("", className)}>
+      <div className="max-w-container mx-auto flex flex-col items-center gap-10">
+        <FadeIn>
+          <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
+            Perguntas Frequentes
+          </span>
+        </FadeIn>
+        <StaggerContainer className="grid w-full gap-4 sm:grid-cols-2">
           {faqItems.map((item, index) => (
-            <div
-              key={index}
-              className="bg-card border-border rounded-xl border p-6"
-            >
-              <h3 className="text-base font-semibold mb-3">{item.question}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {item.answer}
-              </p>
-            </div>
+            <StaggerItem key={index}>
+              <FAQCard item={item} index={index} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </Section>
   );
