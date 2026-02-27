@@ -1,8 +1,12 @@
 import CTA from "../components/sections/cta/default";
+import FAQ from "../components/sections/faq/default";
 import Features from "../components/sections/features/default";
 import Footer from "../components/sections/footer/default";
 import Hero from "../components/sections/hero/default";
-import Testimonials from "../components/sections/testimonials/default";
+import Items from "../components/sections/items/default";
+import Process from "../components/sections/process/default";
+import Supermarket from "../components/sections/supermarket/default";
+import Team from "../components/sections/team/default";
 import { LayoutLines } from "../components/ui/layout-lines";
 
 export default function Home() {
@@ -11,17 +15,12 @@ export default function Home() {
       <LayoutLines />
       <Hero />
       <Features />
-      <Testimonials />
-      <CTA
-        title="Ready to accelerate your AI initiatives?"
-        buttons={[
-          {
-            href: "#contact",
-            text: "Schedule a Consultation",
-            variant: "default",
-          },
-        ]}
-      />
+      <Items />
+      <Supermarket />
+      <Process />
+      <Team />
+      <FAQ />
+      <CTA />
       <Footer />
     </main>
   );

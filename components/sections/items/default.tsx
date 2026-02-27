@@ -1,98 +1,86 @@
 import {
-  BlocksIcon,
-  EclipseIcon,
-  FastForwardIcon,
-  LanguagesIcon,
-  MonitorSmartphoneIcon,
-  RocketIcon,
-  ScanFaceIcon,
-  SquarePenIcon,
+  BotIcon,
+  FileSearchIcon,
+  ShieldAlertIcon,
+  TrendingUpIcon,
+  GlobeIcon,
 } from "lucide-react";
 import { ReactNode } from "react";
 
-import { Item, ItemDescription,ItemIcon, ItemTitle } from "../../ui/item";
+import { cn } from "@/lib/utils";
+
 import { Section } from "../../ui/section";
 
-interface ItemProps {
+interface CapabilityProps {
   title: string;
   description: string;
   icon: ReactNode;
 }
 
 interface ItemsProps {
-  title?: string;
-  items?: ItemProps[] | false;
   className?: string;
 }
 
-export default function Items({
-  title = "Everything you need. Nothing you don't.",
-  items = [
-    {
-      title: "Accessibility first",
-      description: "Fully WCAG 2.0 compliant, made with best a11y practices",
-      icon: <ScanFaceIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Responsive design",
-      description: "Looks and works great on any device and screen size",
-      icon: <MonitorSmartphoneIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Light and dark mode",
-      description:
-        "Seamless switching between color schemes, 6 themes included",
-      icon: <EclipseIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Easy to customize",
-      description: "Flexible options to match your product or brand",
-      icon: <BlocksIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Top-level performance",
-      description: "Made for lightning-fast load times and smooth interactions",
-      icon: <FastForwardIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Production ready",
-      description: "Thoroughly tested and launch-prepared",
-      icon: <RocketIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Made for localisation",
-      description:
-        "Easy to implement support for multiple languages and regions",
-      icon: <LanguagesIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "CMS friendly",
-      description:
-        "Built to work with your any headless content management system",
-      icon: <SquarePenIcon className="size-5 stroke-1" />,
-    },
-  ],
-  className,
-}: ItemsProps) {
+const capabilities: CapabilityProps[] = [
+  {
+    title: "Automação de Processos",
+    description: "Tarefas operacionais executadas automaticamente",
+    icon: <BotIcon className="size-6 text-brand" />,
+  },
+  {
+    title: "Análise de Documentos",
+    description:
+      "Leitura e validação automática de contratos, NFs e relatórios",
+    icon: <FileSearchIcon className="size-6 text-brand" />,
+  },
+  {
+    title: "Detecção de Riscos & Desvios",
+    description:
+      "Fraudes e inconsistências identificadas instantaneamente, antes que impactem o negócio",
+    icon: <ShieldAlertIcon className="size-6 text-brand" />,
+  },
+  {
+    title: "Previsões & Otimização",
+    description:
+      "Modelos preditivos para estimar demanda, otimizar recursos e maximizar margens",
+    icon: <TrendingUpIcon className="size-6 text-brand" />,
+  },
+  {
+    title: "Dados Externos & Inteligência de Mercado",
+    description:
+      "Monitoramento contínuo de informações públicas e fontes externas para ampliar o contexto das decisões",
+    icon: <GlobeIcon className="size-6 text-brand" />,
+  },
+];
+
+export default function Items({ className }: ItemsProps) {
   return (
-    <Section className={className}>
-      <div className="max-w-container mx-auto flex flex-col items-center gap-6 sm:gap-20">
-        <h2 className="max-w-[560px] text-center text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-          {title}
-        </h2>
-        {items !== false && items.length > 0 && (
-          <div className="grid auto-rows-fr grid-cols-2 gap-0 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-            {items.map((item, index) => (
-              <Item key={index}>
-                <ItemTitle className="flex items-center gap-2">
-                  <ItemIcon>{item.icon}</ItemIcon>
-                  {item.title}
-                </ItemTitle>
-                <ItemDescription>{item.description}</ItemDescription>
-              </Item>
-            ))}
-          </div>
-        )}
+    <Section className={cn("bg-muted/50", className)}>
+      <div className="max-w-container mx-auto flex flex-col gap-12">
+        <div className="flex flex-col items-start gap-4">
+          <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
+            Capacidades da Plataforma
+          </span>
+          <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
+            Tecnologia pronta para automatizar e otimizar sua operação
+          </h2>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {capabilities.map((cap, index) => (
+            <div
+              key={index}
+              className="bg-card border-border flex flex-col gap-3 rounded-xl border p-6 transition-all duration-300 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center rounded-lg bg-primary/5 p-2">
+                  {cap.icon}
+                </div>
+                <h3 className="text-base font-semibold">{cap.title}</h3>
+              </div>
+              <p className="text-muted-foreground text-sm">{cap.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );
