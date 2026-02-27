@@ -1,7 +1,4 @@
-import Link from "next/link";
-import { ReactNode } from "react";
-
-import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 import {
   Accordion,
@@ -13,158 +10,66 @@ import { Section } from "../../ui/section";
 
 interface FAQItemProps {
   question: string;
-  answer: ReactNode;
-  value?: string;
+  answer: string;
 }
 
 interface FAQProps {
-  title?: string;
-  items?: FAQItemProps[] | false;
   className?: string;
 }
 
-export default function FAQ({
-  title = "Questions and Answers",
-  items = [
-    {
-      question:
-        "Why building a great landing page is critical for your business?",
-      answer: (
-        <>
-          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            In today&apos;s AI-driven world, standing out is harder than ever.
-            While anyone can build a product, a professional landing page makes
-            the difference between success and failure.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Launch UI helps you ship faster without compromising on quality.
-          </p>
-        </>
-      ),
-    },
-    {
-      question: "Why use Launch UI instead of a no-code tool?",
-      answer: (
-        <>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            No-code tools lock you into their ecosystem with recurring fees and
-            limited control. They often come with performance issues and make it
-            difficult to integrate with your product.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            You can&apos;t even change your hosting provider and basic things
-            like web analytics come as extra costs and paid add-ons.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            What might seem like a convenient solution today could paint you
-            into a corner tomorrow, limiting your ability to scale and adapt.
-            Launch UI gives you full control of your code while maintaining
-            professional quality.
-          </p>
-        </>
-      ),
-    },
-    {
-      question:
-        "How Launch UI is different from other components libraries and templates?",
-      answer: (
-        <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Launch UI stands out with premium design quality and delightful
-            touches of custom animations and illustrations.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            All components are carefully crafted to help position your product
-            as a professional tool, avoiding the generic template look.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Unlike many libraries that rely on outdated CSS practices and old
-            dependencies, Launch UI is built with modern technologies and best
-            practices in mind.
-          </p>
-        </>
-      ),
-    },
-    {
-      question: 'Why exactly does it mean that "The code is yours"?',
-      answer: (
-        <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            The basic version of Launch UI is open-source and free forever,
-            under a do-whatever-you-want license.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            The pro version that contains more components and options is a
-            one-time purchase that gives you lifetime access to all current and
-            future content. Use it for unlimited personal and commercial
-            projects - no recurring fees or restrictions.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            For complete details about licensing and usage rights, check out{" "}
-            <Link href="/pricing" className="text-foreground underline">
-              the pricing page
-            </Link>
-            .
-          </p>
-        </>
-      ),
-    },
-    {
-      question: "Are Figma files included?",
-      answer: (
-        <p className="text-muted-foreground mb-4 max-w-[580px]">
-          Yes! The complete Launch UI template is available for free on the{" "}
-          <Link
-            href="https://www.figma.com/community/file/1420131743903900629/launch-ui-landing-page-components-ui-kit"
-            className="text-foreground underline"
-          >
-            Figma community
-          </Link>
-          .
-        </p>
-      ),
-    },
-    {
-      question: "Can I get a discount?",
-      answer: (
-        <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Actually, yes! I&apos;m always acively looking for beta testers of
-            new features. If you are interested in exchanging feedback for a
-            discount, please contact me via{" "}
-            <a
-              href={siteConfig.links.email}
-              className="underline underline-offset-2"
-            >
-              email
-            </a>
-            .
-          </p>
-        </>
-      ),
-    },
-  ],
-  className,
-}: FAQProps) {
+const faqItems: FAQItemProps[] = [
+  {
+    question: "O que é a Kauai?",
+    answer:
+      "A Kauai é uma plataforma de inteligência artificial empresarial. Trabalhamos com empresas brasileiras para construir automações de back-office e ferramentas de apoio à tomada de decisão com retorno real e mensurável.",
+  },
+  {
+    question: "Como funciona a segurança dos dados?",
+    answer:
+      "Segurança é prioridade. Nossa plataforma adota padrões corporativos de proteção de dados e operamos a lado com sua equipe para garantir conformidade total com suas políticas e exigências regulatórias.",
+  },
+  {
+    question: "Quais recursos a plataforma oferece?",
+    answer:
+      "A plataforma unifica dados, automatiza fluxos e permite que a IA faça parte do dia a dia do negócio. Também oferece monitoramento contínuo, inteligência analítica e integração com mais de 50 ferramentas corporativas — como SAP, AWS, Microsoft Dynamics, TOTVS e Oracle.",
+  },
+  {
+    question: "Preciso ter equipe técnica?",
+    answer:
+      "Não. Nossa equipe de engenharia cuida de toda implementação, integração e manutenção. Trabalhamos com sua equipe para definir prioridades e ativar soluções que geram impacto imediato.",
+  },
+  {
+    question: "A Kauai cria soluções personalizadas para minha empresa?",
+    answer:
+      "Sim. Trabalhamos lado a lado com sua equipe para conceber e implementar soluções de IA sob medida, priorizando as iniciativas que geram maior impacto e retorno para o negócio.",
+  },
+  {
+    question: "Qual o modelo de precificação?",
+    answer:
+      "Personalizado conforme o escopo. Começamos com um diagnóstico gratuito para identificar as melhores oportunidades.",
+  },
+];
+
+export default function FAQ({ className }: FAQProps) {
   return (
-    <Section className={className}>
+    <Section className={cn("", className)}>
       <div className="max-w-container mx-auto flex flex-col items-center gap-8">
-        <h2 className="text-center text-3xl font-semibold sm:text-5xl">
-          {title}
-        </h2>
-        {items !== false && items.length > 0 && (
-          <Accordion type="single" collapsible className="w-full max-w-[800px]">
-            {items.map((item, index) => (
-              <AccordionItem
-                key={index}
-                value={item.value || `item-${index + 1}`}
-              >
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent>{item.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        )}
+        <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
+          Perguntas Frequentes
+        </span>
+        <div className="grid w-full gap-4 sm:grid-cols-2">
+          {faqItems.map((item, index) => (
+            <div
+              key={index}
+              className="bg-card border-border rounded-xl border p-6"
+            >
+              <h3 className="text-base font-semibold mb-3">{item.question}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );

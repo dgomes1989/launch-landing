@@ -111,18 +111,18 @@
 }
 
 :root {
-  /* Cilantro Brand Colors */
-  --brand: #304F30; /* Cilantro Dark */
+  /* Kauai Brand Colors */
+  --brand: #304F30; /* Kauai Dark */
   --brand-foreground: #8B9D8B; /* Light Sage */
 
-  /* Customized shadcn/ui colors with Cilantro palette */
+  /* Customized shadcn/ui colors with Kauai palette */
   --background: #F9F9F7; /* Off White */
   --foreground: #1A1A1A; /* Charcoal */
   --card: #FFFFFF; /* White */
   --card-foreground: #1A1A1A; /* Charcoal */
   --popover: #FFFFFF; /* White */
   --popover-foreground: #1A1A1A; /* Charcoal */
-  --primary: #304F30; /* Cilantro Dark */
+  --primary: #304F30; /* Kauai Dark */
   --primary-foreground: #FFFFFF; /* White */
   --secondary: #E8EDE8; /* Pale Green */
   --secondary-foreground: #2D3D2D; /* Forest */
@@ -134,8 +134,8 @@
   --destructive-foreground: #FFFFFF;
   --border: #E8EDE8; /* Pale Green */
   --input: #E8EDE8; /* Pale Green */
-  --ring: #304F30; /* Cilantro Dark */
-  --chart-1: #304F30; /* Cilantro Dark */
+  --ring: #304F30; /* Kauai Dark */
+  --chart-1: #304F30; /* Kauai Dark */
   --chart-2: #2D3D2D; /* Forest */
   --chart-3: #6B7D6B; /* Sage */
   --chart-4: #8B9D8B; /* Light Sage */
@@ -160,7 +160,7 @@
 }
 
 .dark {
-  /* Cilantro Brand Colors - Dark Mode */
+  /* Kauai Brand Colors - Dark Mode */
   --brand: #8B9D8B; /* Light Sage */
   --brand-foreground: #E8EDE8; /* Pale Green */
 
@@ -177,7 +177,7 @@
   --secondary-foreground: #F9F9F7; /* Off White */
   --muted: #3D3D3D; /* Dark Gray */
   --muted-foreground: #6B7D6B; /* Sage */
-  --accent: #304F30; /* Cilantro Dark */
+  --accent: #304F30; /* Kauai Dark */
   --accent-foreground: #E8EDE8; /* Pale Green */
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
@@ -186,7 +186,7 @@
   --ring: #8B9D8B; /* Light Sage */
   --chart-1: #8B9D8B; /* Light Sage */
   --chart-2: #6B7D6B; /* Sage */
-  --chart-3: #304F30; /* Cilantro Dark */
+  --chart-3: #304F30; /* Kauai Dark */
   --chart-4: #E8EDE8; /* Pale Green */
   --chart-5: #2D3D2D; /* Forest */
   --sidebar: #2D3D2D; /* Forest */
