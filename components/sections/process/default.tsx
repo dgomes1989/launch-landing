@@ -1,5 +1,8 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 
+import { FadeIn, StaggerContainer, StaggerItem } from "../../ui/motion";
 import { Section } from "../../ui/section";
 
 interface StepProps {
@@ -50,33 +53,39 @@ export default function Process({ className }: ProcessProps) {
     <Section className={cn("bg-muted/50", className)}>
       <div className="max-w-container mx-auto flex flex-col gap-12">
         <div className="flex flex-col items-start gap-4">
-          <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
-            Nosso Processo
-          </span>
-          <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-            Do diagnóstico ao resultado em semanas, não meses
-          </h2>
+          <FadeIn>
+            <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
+              Nosso Processo
+            </span>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
+              Do diagnóstico ao resultado em semanas, não meses
+            </h2>
+          </FadeIn>
         </div>
-        <div className="relative flex flex-col gap-0">
+        <StaggerContainer className="relative flex flex-col gap-0" staggerDelay={0.15}>
           {steps.map((step, index) => (
-            <div key={step.number} className="flex items-start gap-6 pb-10 last:pb-0">
-              <div className="relative flex flex-col items-center">
-                <div className="bg-brand text-primary-foreground flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                  {step.number}
+            <StaggerItem key={step.number} direction="left">
+              <div className="flex items-start gap-6 pb-10 last:pb-0">
+                <div className="relative flex flex-col items-center">
+                  <div className="bg-brand text-primary-foreground flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-bold shadow-md">
+                    {step.number}
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className="bg-border absolute top-10 h-full w-px" />
+                  )}
                 </div>
-                {index < steps.length - 1 && (
-                  <div className="bg-border absolute top-10 h-full w-px" />
-                )}
+                <div className="flex flex-col gap-1 pt-1.5">
+                  <h3 className="text-lg font-semibold">{step.title}</h3>
+                  <p className="text-muted-foreground max-w-[480px] text-sm">
+                    {step.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-1 pt-1.5">
-                <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="text-muted-foreground text-sm max-w-[480px]">
-                  {step.description}
-                </p>
-              </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </Section>
   );

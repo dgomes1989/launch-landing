@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BotIcon,
   FileSearchIcon,
@@ -9,16 +11,13 @@ import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
+import { FadeIn, StaggerContainer, StaggerItem } from "../../ui/motion";
 import { Section } from "../../ui/section";
 
 interface CapabilityProps {
   title: string;
   description: string;
   icon: ReactNode;
-}
-
-interface ItemsProps {
-  className?: string;
 }
 
 const capabilities: CapabilityProps[] = [
@@ -53,34 +52,43 @@ const capabilities: CapabilityProps[] = [
   },
 ];
 
+interface ItemsProps {
+  className?: string;
+}
+
 export default function Items({ className }: ItemsProps) {
   return (
     <Section className={cn("bg-muted/50", className)}>
       <div className="max-w-container mx-auto flex flex-col gap-12">
         <div className="flex flex-col items-start gap-4">
-          <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
-            Capacidades da Plataforma
-          </span>
-          <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
-            Tecnologia pronta para automatizar e otimizar sua operação
-          </h2>
+          <FadeIn>
+            <span className="text-brand text-sm font-semibold tracking-[0.3em] uppercase">
+              Capacidades da Plataforma
+            </span>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="max-w-[640px] text-3xl leading-tight font-semibold sm:text-5xl sm:leading-tight">
+              Tecnologia pronta para automatizar e otimizar sua operação
+            </h2>
+          </FadeIn>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((cap, index) => (
-            <div
-              key={index}
-              className="bg-card border-border flex flex-col gap-3 rounded-xl border p-6 transition-all duration-300 hover:shadow-lg"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center rounded-lg bg-primary/5 p-2">
-                  {cap.icon}
+            <StaggerItem key={index}>
+              <div className="bg-card border-border group flex h-full flex-col gap-3 rounded-xl border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center rounded-lg bg-primary/5 p-2 transition-colors duration-300 group-hover:bg-primary/10">
+                    {cap.icon}
+                  </div>
+                  <h3 className="text-base font-semibold">{cap.title}</h3>
                 </div>
-                <h3 className="text-base font-semibold">{cap.title}</h3>
+                <p className="text-muted-foreground text-sm">
+                  {cap.description}
+                </p>
               </div>
-              <p className="text-muted-foreground text-sm">{cap.description}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </Section>
   );
